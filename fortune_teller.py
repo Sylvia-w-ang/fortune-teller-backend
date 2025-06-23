@@ -77,18 +77,18 @@ def get_color_personality(color):
     }
     return color_traits.get(color.lower(), "uniquely expressive")
 
-def generate_fortune(name, zodiac_sign, color, hobby):
+def generate_fortune(name, zodiac_sign, color):
     zodiac_personality = get_zodiac_personality(zodiac_sign)
     color_personality = get_color_personality(color)
     future_templates = [
-        f"{name}, as someone who is {zodiac_personality} and {color_personality}, your passion for {hobby} will open up new opportunities for learning and connection this year.",
-        f"Your {zodiac_personality} nature, combined with your {color_personality} outlook, means you'll find joy and growth in your {hobby}—and maybe even inspire others to join you!",
+        f"{name}, you are someone who is {zodiac_personality} and {color_personality}.
+        f"Your {zodiac_personality} nature, combined with your {color_personality} outlook, means you'll find joy and growth!",
         f"With your {zodiac_personality} spirit and {color_personality} approach to life, {name}, your dedication to {hobby} will bring you both happiness and new friendships in the near future.",
         f"Being {zodiac_personality} and {color_personality}, you have a knack for making the most of your interests. Keep enjoying {hobby}, and you'll discover new strengths in yourself."
     ]
     return random.choice(future_templates)
 
-def generate_response(name, birthday, color, hobby):
+def generate_response(name, birthday, color):
     zodiac_sign = get_zodiac_sign(birthday)
     zodiac_personality = get_zodiac_personality(zodiac_sign)
     color_personality = get_color_personality(color)
@@ -96,8 +96,7 @@ def generate_response(name, birthday, color, hobby):
         f"Here's a little about you, {name}:\n"
         f"- Zodiac Sign: {zodiac_sign} — {zodiac_personality}\n"
         f"- Color Personality: {color_personality}\n"
-        f"- Favorite Hobby: {hobby}\n\n"
-        f"Looking ahead: {generate_fortune(name, zodiac_sign, color, hobby)}"
+        f"Looking ahead: {generate_fortune(name, zodiac_sign, color)}"
     )
     return feedback
 
