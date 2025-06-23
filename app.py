@@ -11,13 +11,12 @@ def get_fortune():
     name = data.get('name')
     birthday = data.get('birthday')
     color = data.get('color')
-    hobby = data.get('hobby')
     
-    if not all([name, birthday, color, hobby]):
+    if not all([name, birthday, color, ]):
         return jsonify({'error': 'Missing required fields'}), 400
     
     try:
-        response = generate_response(name, birthday, color, hobby)
+        response = generate_response(name, birthday, color)
         return jsonify({'feedback': response})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
